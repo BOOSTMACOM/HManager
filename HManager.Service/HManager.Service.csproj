@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Cmd\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HManager.Dal\HManager.Dal.csproj" />
+  </ItemGroup>
+
+</Project>
