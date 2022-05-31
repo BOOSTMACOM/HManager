@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model HManager.Web.ViewModels.HomeIndexViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Téléphone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model.Patients)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Firstname</td>
+                            <td>@item.Lastname</td>
+                            <td>@item.Phone</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

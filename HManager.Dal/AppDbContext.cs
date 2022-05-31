@@ -12,7 +12,11 @@ namespace HManager.Dal
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base()
         {
-            
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("server=localhost;database=hmanager;user=root");
         }
 
     }

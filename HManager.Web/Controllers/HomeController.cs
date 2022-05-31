@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using HManager.Service;
+using HManager.Service.DTO;
+using HManager.Web.ViewModels;
 
 namespace HManager.Web.Controllers
 {
@@ -13,14 +16,24 @@ namespace HManager.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly PatientService _patientService;
+
+        public HomeController(ILogger<HomeController> logger, PatientService patientService)
         {
             _logger = logger;
+            _patientService = patientService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IList<PatientIndexListItem> patients = _patientService.GetAllPatientForIndex();
+
+            var model = new HomeIndexViewModel
+            {
+                Patients = patients
+            };
+
+            return View(model);
         }
 
         public IActionResult Privacy()
